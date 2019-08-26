@@ -9,5 +9,5 @@ urlpatterns = [
     # GET /
     #path(r'^$', views.Pagamento),
     path('Pagamento', views.Pagamento),
-
+    path('Visualizar/<id>', views.Visualizar),
 ]

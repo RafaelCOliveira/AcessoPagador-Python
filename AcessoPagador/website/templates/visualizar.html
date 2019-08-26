@@ -1,0 +1,124 @@
+{% extends "website/_layouts/base.html" %}
+
+{% block conteudo %}
+
+<div class="row">
+    <div class="col-lg-6">				
+        <div class="form-group">
+            <label>Identificador do Pedido</label>
+            <input class="form-control" value="{{item.Payment.PaymentId}}" disabled>
+        </div>  										
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6">				
+        <div class="form-group">
+            <label>Nome do comprador</label>
+            <input class="form-control" value="{{item.Customer.Name}}" disabled>
+        </div>  										
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-4">	
+        <div class="form-group">
+            <label>Valor da compra</label>
+            <input class="form-control" value="{{item.Payment.Amount}}" disabled>
+        </div>
+    </div>
+    <div class="col-lg-2">	
+        <div class="form-group">
+            <label>Nº de parcelas</label>
+            <input class="form-control" value="{{item.Payment.Installments}}"disabled>
+        </div>
+    </div>
+</div>  
+
+<div class="row">
+    <div class="col-lg-4">	
+        <div class="form-group">
+            <label>Nome impresso no cartão</label>
+            <input class="form-control" value="{{item.Payment.CreditCard.Holder}}" disabled>
+        </div>
+    </div>
+    <div class="col-lg-2">	
+        <div class="form-group">
+            <label >Bandeira do Cartão</label>
+            <select class="form-control" value="{{item.Payment.CreditCard.Brand}}"disabled> 
+            </select>
+        </div>
+    </div>
+</div>   
+<div class="row">
+    <div class="col-lg-4">	
+        <div class="form-group">
+            <label >Numero do cartão</label>
+            <input class="form-control" value="{{item.Payment.CreditCard.CardNumber}}" disabled>
+        </div>
+    </div>
+    <div class="col-lg-2">	
+        <div class="form-group">
+            <label>Validade do cartão</label>
+            <input class="form-control" value="{{item.Payment.CreditCard.ExpirationDate}}" disabled>
+        </div>
+    </div>
+</div>   
+
+<div class="row">
+    <div class="col-lg-6">	
+        <div class="form-group">
+            <label >Código de autorização</label>
+            <input class="form-control" value="{{item.Payment.AuthorizationCode}}" disabled>
+        </div>
+    </div>
+</div> 
+
+
+<div class="row">
+    <div class="col-lg-3">	
+        <div class="form-group">
+            <label >Data do Recebimento pela Braspag</label>
+            <input class="form-control" value="{{item.Payment.ReceivedDate}}" disabled>
+        </div>
+    </div>
+    <div class="col-lg-3">	
+        <div class="form-group">
+            <label>Código de retorno da Operação</label>
+            <input class="form-control" value="{{item.Payment.ReasonCode}}" disabled>
+        </div>
+    </div>
+</div> 
+
+<div class="row">
+    <div class="col-lg-6">	
+        <div class="form-group">
+            <label >Mensagem de retorno da Operação</label>
+            <input class="form-control" value="" disabled>
+        </div>
+    </div>
+</div> 
+
+<div class="row">
+    <div class="col-lg-3">	
+        <div class="form-group">
+            <label >Status</label>
+            <input class="form-control" value="" disabled>
+        </div>
+    </div>
+    <div class="col-lg-3">	
+        <div class="form-group">
+            <label >Código retornado pelo provedor</label>
+            <input class="form-control" value="" disabled>
+        </div>
+    </div>
+</div> 
+
+<div class="row">
+    <div class="col-lg-6">	
+        <div class="form-group">
+            <label >Mensagem retornada pelo provedor</label>
+            <input class="form-control" value="" disabled>
+        </div>
+    </div>
+</div> 
+{% endblock %}
