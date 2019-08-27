@@ -1,0 +1,86 @@
+{% extends "website/_layouts/base.html" %}
+
+{% block conteudo %}
+
+<form method="POST">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-lg-6">	
+            <div class="form-group">
+                <label >Nome do comprador</label>
+                <input class="form-control" name="Name" id="Name" maxlength="255">
+            </div>
+        </div>
+    </div>  
+
+    <div class="row">
+        <div class="col-lg-3">	
+            <div class="form-group">
+                <label>Provedor</label>
+                <input class="form-control" id="Provider" name="Provider" value="Simulado">
+            </div>
+        </div>
+        <div class="col-lg-3">	
+            <div class="form-group">
+                <label>Tipo</label>
+                <input class="form-control" id="Type" name="Type" value="CreditCard">
+            </div>
+        </div>
+    </div>  
+
+    <div class="row">
+        <div class="col-lg-4">	
+            <div class="form-group">
+                <label >Valor da compra</label>
+                <input class="form-control" id="Amount" name="Amount">
+            </div>
+        </div>
+        <div class="col-lg-2">	
+            <div class="form-group">
+                <label >Nº de parcelas</label>
+                <input class="form-control" id="Installments" name="Installments" >
+            </div>
+        </div>
+    </div>  
+
+    <div class="row">
+        <div class="col-lg-4">	
+            <div class="form-group">
+                <label>Nome impresso no cartão</label>
+                <input class="form-control" id="Holder" name="Holder"> 
+            </div>
+        </div>
+        <div class="col-lg-2">	
+            <div class="form-group">
+                <label>Bandeira do Cartão</label>
+                <input class="form-control" id="Brand" name="Brand">
+
+            </div>
+        </div>
+    </div>   
+
+    <div class="row">
+        <div class="col-lg-4">	
+            <div class="form-group">
+                <label>Numero do cartão</label>
+                <input class="form-control" id="CardNumber" name="CardNumber">
+            </div>
+        </div>
+        <div class="col-lg-2">	
+            <div class="form-group">
+                <label>Validade do cartão</label>
+                <input class="form-control" id="expirationDate" name="expirationDate">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3">	
+            <div class="form-group">
+                <label>Código de Segurança</label>
+                <input class="form-control" id="SecurityCode" name="SecurityCode" maxlength="3">
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary" formaction="/RealizarPagamento">Pagar</button>
+</form>
+{% endblock %}

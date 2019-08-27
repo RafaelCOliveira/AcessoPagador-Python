@@ -35,3 +35,11 @@ def Cancelar(request, id):
 
 def Pagar(request):
     return render(request, 'Pagar.html')
+
+def RealizarPagamento(request):
+    pagamento_Cartao = PagamentoCartao.PagamentoCartao()
+    venda = pagamento_Cartao.RequestToVenda(request)
+    item = pagamento_Cartao.Pagar(venda)
+    return render(request, 'visualizar.html',{'item':item })
+
+
