@@ -21,3 +21,17 @@ def Visualizar(request, id):
     pagamento_Cartao = PagamentoCartao.PagamentoCartao()
     item = pagamento_Cartao.Consultar(id)
     return render(request, 'visualizar.html',{'item':item })
+
+
+def Capturar(request, id):
+    pagamento_Cartao = PagamentoCartao.PagamentoCartao()
+    item = pagamento_Cartao.Capturar(id)
+    return render(request, 'visualizar.html',{'item':item })
+
+def Cancelar(request, id):
+    pagamento_Cartao = PagamentoCartao.PagamentoCartao()
+    item = pagamento_Cartao.Cancelar(id)
+    return render(request, 'visualizar.html',{'item':item })
+
+def Pagar(request):
+    return render(request, 'Pagar.html')

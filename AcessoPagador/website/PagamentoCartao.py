@@ -32,17 +32,17 @@ class PagamentoCartao:
         url = self.BaseAddressTransacional + "v2/sales/" + PaymentId + "/capture"
         retorno = requests.put(url, headers = self.headers)
         if retorno.status_code == 200:
-            return True
+            return self.Consultar(PaymentId)
         else:
-            return False
+            return None
 
     def Cancelar(self, PaymentId):
         url = self.BaseAddressTransacional + "v2/sales/" + PaymentId + "/void"
         retorno = requests.put(url, headers = self.headers)
         if retorno.status_code == 200:
-            return True
+            return self.Consultar(PaymentId)
         else:
-            return False
+            return None
 
     def ToObject(self, obj):
         return json.loads(obj, object_hook=lambda d: namedtuple('X', d.keys())(*d.values()))

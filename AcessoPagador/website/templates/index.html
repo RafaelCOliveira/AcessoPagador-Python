@@ -2,20 +2,22 @@
 
 
 {% block conteudo %}
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">Data do Recebimento</th>
-            <th scope="col">Código da Transação</th>
-            <th scope="col">Tipo</th>
-            <th scope="col">Valor</th>
-            <th scope="col">Quant. Parcelas</th>
-            <th scope="col">Status</th>
-            <th scope="col"></th>
-            <th scope="col"></th>
-            <th scope="col"></th>
-        </tr>
-    </thead>
+<form method="POST">
+    {% csrf_token %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Data do Recebimento</th>
+                <th scope="col">Código da Transação</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Valor</th>
+                <th scope="col">Quant. Parcelas</th>
+                <th scope="col">Status</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
         <tbody>
             {% for item in items %}
             <tr>
@@ -25,12 +27,27 @@
                 <td>{{ item.Payment.Amount }}</td>
                 <td>{{ item.Payment.Installments }}</td>
                 <td></td>
-                <td>Atualizar</a></td>
-                <td>Atualizar</a></td>
-                <td>Atualizar</a></td>
+                <td>
+                    <button type="submit" class="btn btn-primary" formaction="/Visualizar/{{item.Payment.PaymentId}}">Visualizar</button>
+                </td>
+                <td>
+                    {% if item.Payment.Status == 1 %}
+                        <button type="submit" class="btn btn-primary" formaction="/Capturar/{{item.Payment.PaymentId}}">Capturar</button>
+                    {% endif %}
+                </td>
+                <td>
+                    {% if item.Payment.Status == 1 or item.Payment.Status == 2 %}
+                        <button type="submit" class="btn btn-primary" formaction="/Cancelar/{{item.Payment.PaymentId}}">Cancelar/Estornar</button>
+                    {% endif %}
+                </td>
+                <td></td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
-    
+</form>  
+<form method="GET" action="/Pagar">
+    <button type="submit" class="btn btn-primary">Novo Pagamento</button>
+</form>
+
 {% endblock %}

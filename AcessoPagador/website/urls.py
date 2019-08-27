@@ -10,4 +10,8 @@ urlpatterns = [
     #path(r'^$', views.Pagamento),
     path('Pagamento', views.Pagamento),
     path('Visualizar/<id>', views.Visualizar),
+    path('Capturar/<id>', views.Capturar),
+    path('Cancelar/<id>', views.Cancelar),
+    path('Pagar', views.Pagar),
+    
 ]
